@@ -1,20 +1,35 @@
 define([
     "jquery",
     "underscore",
-    "backbone",
-    "conf"], function($, _, Backbone, Conf) {
+    "backbone"], function($, _, Backbone) {
     "use strict";
 
-    // Créez une vue CompanyView
-    // Récupérez le template : #company_template
-    // render() doit générer l'affiche de company
+    var CompanyView = Backbone.View.extend({
+        tagName: "li",
+
+        // Écouter l'événement "submit" du formulaire
+        // Appeler la fonction "addressEdit" en callback
+
+        initialize: function() {
+            this.template = _.template($('#company_template').html());
+
+            // Écouter l'événement "change" du model, et appeler "render" en callback
+        },
+
+        render: function() {
+            var view = this.template(this.model.toJSON());
+            this.$el.html(view);
+            return this;
+        },
+
+        addressEdit: function(e) {
+            e.preventDefault();     // Bloque l'envoie du formulaire
+            e.stopPropagation();    // Bloque la propagation de l'événement
+
+            // Récupérer l'adresse, et la "setter" au modèle
+        }
+    });
 
 
-    return {};
+    return CompanyView;
 });
-
-
-
-//Pro tips :
-//    - Compiler le template : _.template("votre_template")
-//    - Passer les paramètres du modèle au template : this.model.toJSON()

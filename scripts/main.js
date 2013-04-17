@@ -47,12 +47,13 @@ require([
         name: "Sharp",
         address: "Japan"
     });
+    var sharpView = new CompanyView({
+        model: sharp
+    });
+    $("#companies").append(sharpView.render().el);
 
-    // Créez une vue pour "sharp"
-    // Affichez la dans le navigateur
 
-
-
-    // Pro tip : l'élément "el" de la vue doit être passé au DOM
+    // Exo 3
+    // Afficher la vue de "apple"
 
 });
