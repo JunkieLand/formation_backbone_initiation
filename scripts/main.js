@@ -2,7 +2,8 @@ require.config({
     paths: {
         jquery: "libs/jquery_1.9.1",
         underscore: "libs/underscore_1.4.4",
-        backbone: "libs/backbone_1.0.0"
+        backbone: "libs/backbone_1.0.0",
+        conf: "conf/conf"
     },
     shim: {
         backbone: {
@@ -19,8 +20,12 @@ require.config({
 require([
     "jquery",
     "underscore",
-    "backbone"], function($, _, Backbone) {
+    "backbone",
+    "conf"], function($, _, Backbone, Conf) {
     "use strict";
 
+    Conf.init();
+
+    
 
 });
