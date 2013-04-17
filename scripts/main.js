@@ -78,5 +78,5 @@ require([
 
 
     // Exo 5
-    // Fetch la collection
+    companies.fetch();
 });

@@ -7,9 +7,9 @@ define([
     "use strict";
 
     var Companies = Backbone.Collection.extend({
-        model: Company
+        model: Company,
 
-        // Ajouter l'URL
+        url: Conf.baseUrl + "/api/companies"
     });
 
     return Companies;
