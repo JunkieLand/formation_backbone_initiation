@@ -5,9 +5,14 @@ define([
     "conf"], function($, _, Backbone, Conf) {
     "use strict";
 
-    // Créez un modèle Company
+    var Company = Backbone.Model.extend({
+        defaults : {
+            name: "no name",
+            address: "no address"
+        },
 
+        urlRoot: Conf.baseUrl + "/api/companies"
+    });
 
-
-// Pro tip :
-//    l'URL est :  Conf.baseUrl + "/api/companies"
+    return Company;
+});

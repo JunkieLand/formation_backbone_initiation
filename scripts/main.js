@@ -22,18 +22,37 @@ require([
     "underscore",
     "backbone",
     "conf",
-    "models/Company"], function($, _, Backbone, Conf, Company) {
+    "models/Company",
+    "views/CompanyView"], function($, _, Backbone, Conf, Company, CompanyView) {
     "use strict";
 
     Conf.init();
 
 
     /*****   MODELS   *****/
-    // 1- Créez une instance de Company
-    //    Sauvez le. Vérifiez en console qu'il est bien sauvé
+    // Exo 1
+    var apple = new Company({
+        id: 2
+    });
+    apple.fetch({
+        success: function(model) {
+            console.log(model.get("name") + " is at " + model.get("address"));
+        }
+    });
 
 
-    // 2- Créez une instance de Company avec {id: 1}
-    //    Récupérez le. Constater en console son contenu
+    /*****   VIEWS   *****/
+    // Exo 2
+    var sharp = new Company({
+        name: "Sharp",
+        address: "Japan"
+    });
+
+    // Créez une vue pour "sharp"
+    // Affichez la dans le navigateur
+
+
+
+    // Pro tip : l'élément "el" de la vue doit être passé au DOM
 
 });
