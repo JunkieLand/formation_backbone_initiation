@@ -23,7 +23,9 @@ require([
     "backbone",
     "conf",
     "models/Company",
-    "views/CompanyView"], function($, _, Backbone, Conf, Company, CompanyView) {
+    "views/CompanyView",
+    "collections/Companies",
+    "views/CompaniesView"], function($, _, Backbone, Conf, Company, CompanyView, Companies, CompaniesView) {
     "use strict";
 
     Conf.init();
@@ -54,6 +56,16 @@ require([
 
 
     // Exo 3
-    // Afficher la vue de "apple"
+    var appleView = new CompanyView({
+        model: apple
+    });
+    $("#companies").append(appleView.render().el);
+
+
+    /*****   COLLECTIONS   *****/
+    // Exo 4
+    // Créer une collection de Company
+    // Créer une vue pour cette collection
+    // Afficher cette vue
 
 });

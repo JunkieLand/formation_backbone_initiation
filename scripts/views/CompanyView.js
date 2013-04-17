@@ -7,13 +7,13 @@ define([
     var CompanyView = Backbone.View.extend({
         tagName: "li",
 
-        // Écouter l'événement "submit" du formulaire
-        // Appeler la fonction "addressEdit" en callback
+        events: {
+            "submit .address_edit": "addressEdit"
+        },
 
         initialize: function() {
             this.template = _.template($('#company_template').html());
-
-            // Écouter l'événement "change" du model, et appeler "render" en callback
+            this.listenTo(this.model, "change", this.render);
         },
 
         render: function() {
@@ -23,10 +23,13 @@ define([
         },
 
         addressEdit: function(e) {
-            e.preventDefault();     // Bloque l'envoie du formulaire
-            e.stopPropagation();    // Bloque la propagation de l'événement
+            e.preventDefault();
+            e.stopPropagation();
 
-            // Récupérer l'adresse, et la "setter" au modèle
+            var value = this.$(".new_address").val();
+            this.model.set({
+                address: value
+            });
         }
     });
 
