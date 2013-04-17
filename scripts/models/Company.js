@@ -5,6 +5,9 @@ define([
     "conf"], function($, _, Backbone, Conf) {
     "use strict";
 
+    // Créez un modèle Company
 
-    return {};
-});
+
+
+// Pro tip :
+//    l'URL est :  Conf.baseUrl + "/api/companies"
