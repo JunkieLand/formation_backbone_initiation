@@ -7,17 +7,26 @@ define([
 
     var CompaniesView = Backbone.View.extend({
 
-        el: ,// TODO
+        el: $("#content"),
+
+        initialize: function() {
+            this.ul = this.$("#companies");
+
+            // Écouter l'événement "reset", et appeler "render" en callback
+        },
 
         render: function() {
-            // TODO
+            this.ul.empty();
+            this.collection.each(this.addOne, this);
+        },
+
+        addOne: function(model) {
+            var itemView = new CompanyView({
+                model: model
+            });
+            this.ul.append(itemView.render().el);
         }
     });
 
     return CompaniesView;
 });
-
-
-
-// Pro tip :
-//    Collection.each(callback, this)

@@ -64,8 +64,19 @@ require([
 
     /*****   COLLECTIONS   *****/
     // Exo 4
-    // Créer une collection de Company
-    // Créer une vue pour cette collection
-    // Afficher cette vue
+    var companies = new Companies([{
+        name: "Free",
+        address: "En France"
+    }, {
+        name: "Numericable",
+        address: "En France aussi"
+    }]);
+    var companiesView = new CompaniesView({
+        collection: companies
+    });
+    companiesView.render();
 
+
+    // Exo 5
+    // Fetch la collection
 });

@@ -2,11 +2,15 @@ define([
     "jquery",
     "underscore",
     "backbone",
-    "conf",
-    "models/Company"], function($, _, Backbone, Conf, Company) {
+    "models/Company",
+    "conf"], function($, _, Backbone, Company, Conf) {
     "use strict";
 
-    // Définir une collection de Company
+    var Companies = Backbone.Collection.extend({
+        model: Company
 
-    return {};
+        // Ajouter l'URL
+    });
+
+    return Companies;
 });
