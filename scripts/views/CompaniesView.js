@@ -10,13 +10,13 @@ define([
         el: $("#content"),
 
         events: {
-            // TODO
+            "submit #new_company": "createCompany"
         },
 
         initialize: function() {
             this.ul = this.$("#companies");
             this.listenTo(this.collection, "reset", this.render);
-            // Écouter l'événement "add", et appeler "render" en callback
+            this.listenTo(this.collection, "add", this.addOne);
         },
 
         render: function() {
@@ -28,8 +28,14 @@ define([
             e.preventDefault();
             e.stopPropagation();
 
-            // Récupérer les nouvelles valeurs
-            // Les ajouter à la collection
+            var newName = this.$("#new_name").val(),
+                newAddress = this.$("#new_address").val();
+
+//            this.collection.add({
+            this.collection.create({
+                name: newName,
+                address: newAddress
+            });
         },
 
         addOne: function(model) {
